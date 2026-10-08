@@ -2,11 +2,10 @@
 
 Flask student-performance prediction project with data-processing, model-training, and inference pipeline components.
 
-## Repository guide
+## Setup and repository reference
 
-### Contents
+### Project structure
 
-- [README.md](README.md)
 - [app.py](app.py)
 - [application.py](application.py)
 - [artifacts](artifacts)
@@ -41,9 +40,25 @@ python application.py
 
 ### Configuration and limitations
 
+Training needs the input dataset and the dependencies in requirements.txt. Inference loads artifacts/model.pkl and artifacts/preprocessor.pkl relative to the project. Regression tests use synthetic models; full training and saved production artifacts were not exercised.
+
+### Maintenance fixes
+
+- Preserve intended error messages when no exception traceback is active.
+- Resolve prediction artifacts from the project directory instead of the process working directory.
+- Support saving a model to a filename in the current directory.
+
 ### Validation
 
-Reviewed on 2026-10-08. Python syntax checks passed for 14 source files. Syntax validation does not establish runtime correctness or dependency compatibility.
+Audit: 2026-10-08. Repository structure, setup instructions and description were reviewed. 14 existing Python files passed syntax checks; changed files and new regression tests were checked separately. 4 regression tests passed. Syntax checks do not establish full runtime correctness. External APIs, live scraping, GUI interaction, notebook training and production deployment were not comprehensively exercised.
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+### Repository description
+
+The short GitHub description is provided in [REPOSITORY_DESCRIPTION.md](REPOSITORY_DESCRIPTION.md).
 
 ### Contributions
 
